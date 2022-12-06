@@ -3,13 +3,14 @@
     <div id="menu" class="home-container1">
       <h1 class="home-text">RGB Gradient Randomizer</h1>
       <div class="home-container2">
-        <button id="btn-red" type="button" class="home-button color-shift button">
+        <button id="btn-red" type="button" class="home-button color-shift button" v-on:click="Redshift()">
           Red
         </button>
         <button
           id="btn-blue"
           type="button"
           class="home-button1 color-shift button"
+          v-on:click="Blueshift()"
         >
           Blue
         </button>
@@ -17,27 +18,34 @@
           id="btn-green"
           type="button"
           class="home-button2 color-shift button"
+          v-on:click="Greenshift()"
         >
           Green
         </button>
       </div>
     </div>
-    <div id="viewBg" class="home-container3"></div>
+    <div id="viewBg" class="home-container3" :style="{backgroundColor: Redshift()}"></div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'Home',
-  metaInfo: {
-    title: 'RGB Gradient Generator',
-    meta: [
-      {
-        property: 'og:title',
-        content: 'RGB Gradient Generator',
-      },
-    ],
-  },
+  props: {},
+  methods:{
+    Redshift(){
+      const r = () => Math.floor(256 * Math.random());
+      return `rgb(${r()}, ${r()}, ${r()})`;
+    },
+    Blueshift(){
+      const r = () => Math.floor(256 * Math.random());
+      return `rgb(${r()}, ${r()}, ${r()})`;
+    },
+    Greenshift(){
+      const r = () => Math.floor(256 * Math.random());
+      return `rgb(${r()}, ${r()}, ${r()})`;
+    }
+  }
 }
 </script>
 
@@ -106,6 +114,5 @@ export default {
   align-self: flex-end;
   align-items: center;
   justify-content: center;
-  background-image: linear-gradient(to right, #bdc3c7 0%, #2c3e50 100%);
 }
 </style>
